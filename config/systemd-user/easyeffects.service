@@ -1,0 +1,13 @@
+[Unit]
+Description=Easy Effects (PipeWire audio effects)
+After=pipewire.service pipewire-pulse.service wireplumber.service
+Wants=pipewire.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/easyeffects --gapplication-service
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=default.target

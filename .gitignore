@@ -1,0 +1,10 @@
+# 镜像（体积过大，不进仓库）
+*.img
+images/
+# 敏感
+*.pem
+*.key
+setup-wifi.sh
+# 构建产物
+__pycache__/
+*.pyc

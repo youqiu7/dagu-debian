@@ -1,0 +1,17 @@
+[Unit]
+Description=dagu audio up (CS35L41 + WCD9385)
+After=pipewire.service pipewire-pulse.service sound.target user@1001.service
+Wants=pipewire.service user@1001.service
+
+[Service]
+Type=oneshot
+User=youqi
+Environment=XDG_RUNTIME_DIR=/run/user/1001
+Environment=DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1001/bus
+ExecStart=/usr/local/bin/dagu-audio-up.sh
+RemainAfterExit=yes
+TimeoutStartSec=180
+SuccessExitStatus=1
+
+[Install]
+WantedBy=multi-user.target
